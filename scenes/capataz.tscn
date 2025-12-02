@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfuqs3rvpuaa7"]
+
+[ext_resource type="Texture2D" uid="uid://bx1n6l355u74g" path="res://assets/personajes/capataz.png" id="1_njm8g"]
+[ext_resource type="Script" uid="uid://bf6n3w484hthm" path="res://scripts/animated_sprite_2d.gd" id="2_wphss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wphss"]
+atlas = ExtResource("1_njm8g")
+region = Rect2(0, 0, 359, 504)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayffh"]
+atlas = ExtResource("1_njm8g")
+region = Rect2(359, 0, 359, 504)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfx3m"]
+atlas = ExtResource("1_njm8g")
+region = Rect2(0, 504, 359, 504)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7hf1"]
+atlas = ExtResource("1_njm8g")
+region = Rect2(359, 504, 359, 504)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qmw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wphss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayffh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfx3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7hf1")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nmc3q"]
+radius = 11.0
+height = 32.0
+
+[node name="Capataz" type="Node2D"]
+position = Vector2(73, 30)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 2)
+scale = Vector2(0.07620995, 0.07142857)
+sprite_frames = SubResource("SpriteFrames_4qmw8")
+animation = &"Walk"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("2_wphss")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-3, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -2)
+shape = SubResource("CapsuleShape2D_nmc3q")
+
+[connection signal="body_entered" from="Area2D" to="AnimatedSprite2D" method="_on_area_2d_body_entered"]
