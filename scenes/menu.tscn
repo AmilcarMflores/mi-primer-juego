@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://cel7445jw2oap"]
+
+[ext_resource type="Script" uid="uid://pgbevmvkg3le" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://dt1kc5c2xngj8" path="res://images/paisaje-cerro-rico.png" id="1_yqeox"]
+[ext_resource type="FontFile" uid="uid://oi6o4hrj3a1j" path="res://font-family/ginger_brand/GingerBrand.ttf" id="3_con2f"]
+[ext_resource type="FontFile" uid="uid://d3rg1uf4bi3nc" path="res://font-family/04b_30/04B_30__.TTF" id="4_mhnvy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+bg_color = Color(0.4627451, 0.10980392, 0, 0.9254902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
+bg_color = Color(0.4627451, 0.10980392, 0, 0.9254902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0.4627451, 0.10980392, 0, 0.9254902)
+
+[sub_resource type="FontVariation" id="FontVariation_mhnvy"]
+base_font = ExtResource("3_con2f")
+
+[sub_resource type="Theme" id="Theme_4ytvr"]
+default_font = SubResource("FontVariation_mhnvy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ytvr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g3eks"]
+font = ExtResource("4_mhnvy")
+font_size = 50
+outline_size = 1
+shadow_size = 5
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6321567, 0.22812271, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yqeox")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3237847
+anchor_top = 0.2951389
+anchor_right = 0.6762153
+anchor_bottom = 0.7048611
+offset_top = 118.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vjb58")
+text = "JUGAR"
+
+[node name="Option" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_con2f")
+text = "OPCIONES"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+text = "SALIR"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+modulate = Color(0.46105427, 0.10841846, 4.813075e-08, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.006076389
+anchor_top = 0.14506172
+anchor_right = 1.0026041
+anchor_bottom = 0.47839507
+offset_left = 35.0
+offset_top = -6.0
+offset_right = -11.0
+offset_bottom = -6.0
+grow_horizontal = 2
+theme = SubResource("Theme_4ytvr")
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_4ytvr")
+text = "El Abismo del Cerro Rico 
+de la Plata
+"
+label_settings = SubResource("LabelSettings_g3eks")
+horizontal_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
