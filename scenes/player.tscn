@@ -142,7 +142,7 @@ sprite_frames = SubResource("SpriteFrames_3vyb7")
 animation = &"Idle"
 offset = Vector2(-0.8205128, -8.827586)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(5, -3)
 shape = SubResource("CapsuleShape2D_g2brh")
 
