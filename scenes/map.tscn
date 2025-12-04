@@ -2199,10 +2199,23 @@ tile_set = SubResource("TileSet_2lpho")
 metadata/_edit_group_ = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_gldc4")]
-position = Vector2(532, 650)
+position = Vector2(531, 642)
 
 [node name="Killzone" parent="." groups=["Player"] instance=ExtResource("4_0cso3")]
-position = Vector2(480, 754)
+position = Vector2(504, 833)
 
 [node name="Capataz" parent="." instance=ExtResource("7_nakos")]
-position = Vector2(2266, 599)
+position = Vector2(969, 633)
+collision_layer = 0
+
+[node name="Capataz2" parent="." instance=ExtResource("7_nakos")]
+position = Vector2(2256, 601)
+
+[node name="Capataz3" parent="." instance=ExtResource("7_nakos")]
+position = Vector2(2494, 569)
+
+[node name="Capataz4" parent="." instance=ExtResource("7_nakos")]
+position = Vector2(3257, 473)
+
+[node name="Capataz5" parent="." instance=ExtResource("7_nakos")]
+position = Vector2(3883, 729)
