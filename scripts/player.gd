@@ -33,3 +33,7 @@ func _physics_process(delta: float) -> void:
 		anim.play("Walk")
 	else:
 		anim.play("Idle")
+
+func _ready():
+	add_to_group("Player")
+	
